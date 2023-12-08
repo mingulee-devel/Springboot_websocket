@@ -27,7 +27,7 @@ public class FilterChannelInterceptor implements ChannelInterceptor {
 //                Integer userId = JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(token)
 //                        .getClaim("id").asInt();
 
-//                headerAccessor.addNativeHeader("User", String.valueOf(userId));
+                headerAccessor.addNativeHeader("User", token);
                 System.out.println("test : " + token);
             } catch (Exception e){
 

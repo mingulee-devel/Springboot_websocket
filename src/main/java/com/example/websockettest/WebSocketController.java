@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class WebSocketController {
+public class WebSocketController { //Message Handler
     private final SimpMessagingTemplate simpMessagingTemplate;
 
-    @MessageMapping("/chat")
+    @MessageMapping("/chat") // /ws/chat
     public void sendMessage(ChatDto chatDto, SimpMessageHeaderAccessor accessor) {
         simpMessagingTemplate.convertAndSend("/sub/chat/" + chatDto.getChannelId(), chatDto);
     }
