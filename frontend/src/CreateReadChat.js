@@ -27,8 +27,8 @@ function CreateReadChat() {
 				subscribe();
 			},
 			connectHeaders: { //jwt
-				Authorization: nick,
-				// Authorization: window.localStorage.getItem('authrization'),
+				Authorization: 'test token',
+				// Authorization: window.localStorage.getItem('test'),
 			}
 		});
 		client.current.activate();
@@ -91,8 +91,8 @@ function CreateReadChat() {
 	};
 
 	useEffect(() => {
-		window.localStorage.setItem('authrization', 'ming');
-		console.log(window.localStorage.getItem('authrization'));
+		window.localStorage.setItem('test', 'ming');
+		console.log(window.localStorage.getItem('test'));
 
 		connect();
 
