@@ -15,10 +15,6 @@ function CreateReadChat() {
 		console.log(chatList);
 	}, [chatList]);
 
-	useEffect(() => {
-		console.log(client);
-	}, [client]);
-
 	const connect = () => {
 		client.current = new StompJs.Client({
 			brokerURL: 'ws://localhost:8620/ws',
@@ -42,7 +38,7 @@ function CreateReadChat() {
 		client.current.publish({
 			destination: '/pub/chat',
 			body: JSON.stringify({
-				applyId: nick,
+				// applyId: nick,
 				// applyId: apply_id,
 				channelId : 1,
 				// writerId: 1,
@@ -56,7 +52,7 @@ function CreateReadChat() {
 
 	const subscribe = () => {
 		console.log('subscribe');
-		client.current.subscribe('/sub/chat/' + nick, (body) => {
+		client.current.subscribe('/sub/chat/' + 1, (body) => {
 		// client.current.subscribe('/sub/chat/' + apply_id, (body) => {
 			let json_body = JSON.parse(body.body);
 			console.log(json_body);
@@ -91,9 +87,6 @@ function CreateReadChat() {
 	};
 
 	useEffect(() => {
-		window.localStorage.setItem('test', 'ming');
-		console.log(window.localStorage.getItem('test'));
-
 		connect();
 
 		return () => disconnect();
