@@ -25,7 +25,10 @@ function CreateReadChat() {
 			connectHeaders: { //jwt
 				Authorization: 'test token',
 				// Authorization: window.localStorage.getItem('test'),
-			}
+			},
+			debug: function (str) {
+				console.log(str);
+			},
 		});
 		client.current.activate();
 	};
