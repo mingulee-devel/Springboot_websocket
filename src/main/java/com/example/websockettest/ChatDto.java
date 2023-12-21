@@ -6,5 +6,6 @@ import lombok.Data;
 public class ChatDto {
     private Integer channelId;
     private Integer writerId;
+    private String writerNm;
     private String chat;
 }

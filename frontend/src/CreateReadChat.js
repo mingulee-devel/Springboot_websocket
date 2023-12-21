@@ -46,6 +46,7 @@ function CreateReadChat() {
 				channelId : 1,
 				// writerId: 1,
 				writerId: nick,
+				writerNm: 'user',
 				chat: chat
 			}),
 		});
@@ -57,6 +58,7 @@ function CreateReadChat() {
 		console.log('subscribe');
 		client.current.subscribe('/sub/chat/' + 1, (body) => {
 		// client.current.subscribe('/sub/chat/' + apply_id, (body) => {
+			console.log(body);
 			let json_body = JSON.parse(body.body);
 			console.log(json_body);
 
